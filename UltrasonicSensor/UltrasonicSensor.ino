@@ -1,6 +1,6 @@
 //===---------__ Hacking STEM – UltrasonicSensor.ino – Arduino __----------===//
 // For use with the How deep is the ocean? Build an ultrasonic sensor to 
-// measure ocean depths lesson planavailable from  Microsoft Education
+// measure ocean depths lesson plan available from  Microsoft Education
 // Workshop at http://aka.ms/hackingSTEM
 //
 // Overview:
