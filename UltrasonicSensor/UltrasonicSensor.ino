@@ -8,19 +8,14 @@
 // sent on the serial connection.
 //
 //  Hardware Connections:
-//  Arduino | HC-SR04 
-//  -------------------
-//    5V    |   VCC     
-//    0     |   Switch 0     
-//    1     |   Switch 1     
-//    2     |   Switch 2     
-//    3     |   Switch 3     
-//    4     |   Switch 4     
-//    9     |   Trig     
-//    10    |   Echo     
-//    13    |   LED     
-//    GND   |   GND
-//
+//     Pin     |    Connection
+//  ------------------------------
+//      9      |   Trig HC-SR04     
+//      10     |   Echo HC-SR04     
+//      GND    |   GND  HC-SR04 
+//      5V     |   VCC HC-SR04     
+//   0,1,2,3,4 | Switch 0,1,2,3,4     
+//      13     |   LED     
 //
 // This project uses an Arduino UNO microcontroller board, information at:
 // https://www.arduino.cc/en/main/arduinoBoardUno
@@ -36,8 +31,6 @@
 // Copyright (c) 2016 SparkFun Electronic  (HC-SR04_UltrasonicSensor project)
 // MIT License terms detailed in LICENSE.txt
 //===----------------------------------------------------------------------===//
-
-
 
 // LED Pin
 const int LED_PIN = 13;
@@ -131,10 +124,10 @@ void loop() {
 		digitalWrite (LED_PIN, HIGH);
 		ledTimer = millis();
 	}
+	
 	currentTime = millis();
+
 	if (currentTime - ledTimer >= ledInterval){
 		digitalWrite (LED_PIN, LOW);
 	}
-
-
 }
