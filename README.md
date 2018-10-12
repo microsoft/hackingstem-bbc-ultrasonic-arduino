@@ -1,28 +1,18 @@
-Ultrasonic Sensor - HC-SR04
-========================================
+# Introduction
+Arduino code for Microsoft Hacking STEM Build an Ultrasonic Sensor to Measure Ocean Depths lesson plan adapted for Arduino
 
-![Ultrasonic Sensor - HC-SR04](https://cdn.sparkfun.com//assets/parts/1/1/6/6/8/13959-01a.jpg)
+# Getting Started
+1. Download lesson assets at http://aka.ms/hackingSTEM
+1. Build your UltrasonicSensor test rig!
+1. Use [Arduino IDE](https://www.arduino.cc/en/Main/Software) to the .ino to your [Arduino Uno](https://store.arduino.cc/usa/arduino-uno-rev3) microcontroller
+1. Verify data interactions in Excel
+1. Ready, Set, Science!
 
-[*SEN-13959*](https://www.sparkfun.com/products/13959)
+# Contributing
+We gladly accept pull requests for enhancements and bug fixes! You may also submit feature requests and bugs!
+https://github.com/TODO
 
-This is the HC-SR04 ultrasonic ranging sensor. This economical sensor provides 2cm to 400cm of non-contact measurement functionality with a ranging accuracy that can reach up to 3mm. 
+# Make it your!
+This project is licensed under the MIT open source license, see License.txt. The MIT license allows you to take this project and make awesome things with it! MIT is a very permissive license, but does require you include license and copyright from License.txt in any derivative work for sake of attribution.
 
-Repository Contents
--------------------
-
-* **/Firmware** - Arduino example code.
-
-License Information
--------------------
-
-This product is _**open source**_! 
-
-Please review the LICENSE.md file for license information. 
-
-If you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.
-
-Distributed as-is; no warranty is given.
-
-- Your friends at SparkFun.
-
-_<COLLABORATION CREDIT>_
+Fork away! Let us know what you build!
