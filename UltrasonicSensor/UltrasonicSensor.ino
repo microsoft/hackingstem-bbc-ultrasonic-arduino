@@ -60,7 +60,7 @@ const int ledInterval = 100;
 unsigned long t1;
 unsigned long t2;
 unsigned long pulse_width;
-float cm;
+float mm;
 
 void setup() {
 	// Set up switch pins 
@@ -110,7 +110,7 @@ void loop() {
 	// Calculate distance in centimeters and inches. The constants
 	// are found in the datasheet, and calculated from the assumed speed 
 	//of sound in air at sea level (~340 m/s).
-	cm = pulse_width / 58.0;
+	mm = pulse_width / 5.80;
 
 	// Wait at least 60ms before next measurement
 	delay(60);
@@ -118,7 +118,7 @@ void loop() {
 	if (readPosition != lastReadPosition) {
 		Serial.print(readPosition);
 		Serial.print(",");
-		Serial.print(cm);
+		Serial.print(int(mm));
 		Serial.print("\n");
 		lastReadPosition = readPosition;
 		digitalWrite (LED_PIN, HIGH);
