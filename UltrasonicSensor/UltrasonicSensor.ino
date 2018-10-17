@@ -27,44 +27,45 @@
 // Based on HC-SR04 project by SparkFun available:
 // https://github.com/sparkfun/HC-SR04_UltrasonicSensor
 //
-// Copyright 2018 Jeremy Franklin-Ross, Microsoft EDU Workshop - HackingSTEM
+// Copyright 2018 Adi Adzulay, Jeremy Franklin-Ross, 
+// Microsoft EDU Workshop - HackingSTEM
 // Copyright (c) 2016 SparkFun Electronic  (HC-SR04_UltrasonicSensor project)
 // MIT License terms detailed in LICENSE.txt
 //===----------------------------------------------------------------------===//
 
 // LED Pin
-const int LED_PIN = 13;
+const int kLedPin = 13;
 
 // Ultrasonic Pins
-const int TRIG_PIN = 9;
-const int ECHO_PIN = 10;
+const int kTrigPin = 9;
+const int kEchoPin = 10;
 
 // Number of switch Pins
-const int NUM_OF_SWITCH_PINS = 5;
+const int kNumOfSwitchPins = 5;
 
 // Anything over 400 cm (23200 us pulse) is "out of range"
-const unsigned int MAX_DIST = 23200;
+const unsigned int kMaxDistance = 23200;
 
 // Switches
 int startPin = 2;
-int readingPositionPin[NUM_OF_SWITCH_PINS];
+int readingPositionPin[kNumOfSwitchPins];
 int readPosition;
 int lastReadPosition;
 
-// led illumination vars
+// led illumination variables
 long ledTimer;
 long currentTime = 0;
 const int ledInterval = 100;
 
 // defines variables
-unsigned long t1;
-unsigned long t2;
+unsigned long time1;
+unsigned long time2;
 unsigned long pulse_width;
 float mm;
 
 void setup() {
 	// Set up switch pins 
-	for (int i = 0; i < NUM_OF_SWITCH_PINS; i++) {
+	for (int i = 0; i < kNumOfSwitchPins; i++) {
 		readingPositionPin[i] = startPin;
 		pinMode(readingPositionPin[i], INPUT);
 		digitalWrite(readingPositionPin[i], HIGH);
@@ -72,12 +73,12 @@ void setup() {
 	}
 
 	// The set up led pin
-	pinMode(LED_PIN, OUTPUT);
-	digitalWrite(LED_PIN, LOW);
+	pinMode(kLedPin, OUTPUT);
+	digitalWrite(kLedPin, LOW);
 
 	// The Trigger pin will tell the sensor to range find
-	pinMode(TRIG_PIN, OUTPUT);
-	digitalWrite(TRIG_PIN, LOW);
+	pinMode(kTrigPin, OUTPUT);
+	digitalWrite(kTrigPin, LOW);
 
 	// We'll use the serial monitor to view the sensor output
 	Serial.begin(9600);
@@ -85,27 +86,26 @@ void setup() {
 
 void loop() {
 	// look for active pin
-	for (int i = 0; i < NUM_OF_SWITCH_PINS; i++) {
-		//int checkPosition = digitalRead (readingPositionPin[i]);
-		if (digitalRead (readingPositionPin[i]) == 0) {
+	for (int i = 0; i < kNumOfSwitchPins; i++) {
+		if (digitalRead (readingPositionPin[i]) == LOW) {
 			readPosition = i + 1;
 		}
 	}
 
 	// Hold the trigger pin high for at least 10 us
-	digitalWrite(TRIG_PIN, HIGH);
+	digitalWrite(kTrigPin, HIGH);
 	delayMicroseconds(10);
-	digitalWrite(TRIG_PIN, LOW);
+	digitalWrite(kTrigPin, LOW);
 
 	// Wait for pulse on echo pin
-	while( digitalRead(ECHO_PIN) == 0 );
+	while( digitalRead(kEchoPin) == LOW );
 
 	// Measure how long the echo pin was held high (pulse width)
 	// Note: the micros() counter will overflow after ~70 min
-	t1 = micros();
-	while ( digitalRead(ECHO_PIN) == 1);
-		t2 = micros();
-	pulse_width = t2 - t1;
+	time1 = micros();
+	while ( digitalRead(kEchoPin) == HIGH );
+		time2 = micros();
+	pulse_width = time2 - time1;
 
 	// Calculate distance in centimeters and inches. The constants
 	// are found in the datasheet, and calculated from the assumed speed 
@@ -121,13 +121,13 @@ void loop() {
 		Serial.print(int(mm));
 		Serial.print("\n");
 		lastReadPosition = readPosition;
-		digitalWrite (LED_PIN, HIGH);
+		digitalWrite (kLedPin, HIGH);
 		ledTimer = millis();
 	}
 	
 	currentTime = millis();
 
 	if (currentTime - ledTimer >= ledInterval){
-		digitalWrite (LED_PIN, LOW);
+		digitalWrite (kLedPin, LOW);
 	}
 }
