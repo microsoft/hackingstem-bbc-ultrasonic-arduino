@@ -1,7 +1,8 @@
 //===---------__ Hacking STEM – UltrasonicSensor.ino – Arduino __----------===//
 // For use with the How deep is the ocean? Build an ultrasonic sensor to 
 // measure ocean depths lesson plan available from  Microsoft Education
-// Workshop at http://aka.ms/hackingSTEM
+// Workshop at https://aka.ms/depth-lesson
+// http://aka.ms/hackingSTEM
 //
 // Overview:
 // Each time one of the 5 switches is triggered, an ultrasonic reading is 
@@ -10,19 +11,19 @@
 //  Hardware Connections:
 //     Pin     |    Connection
 //  ------------------------------
-//      9      |   Trig HC-SR04     
-//      10     |   Echo HC-SR04     
-//      GND    |   GND  HC-SR04 
-//      5V     |   VCC HC-SR04     
-//   0,1,2,3,4 | Switch 0,1,2,3,4     
-//      13     |   LED     
+//      9      |   Trig HC-SR04
+//      10     |   Echo HC-SR04
+//      GND    |   GND  HC-SR04
+//      5V     |   VCC HC-SR04
+//   0,1,2,3,4 | Switch 0,1,2,3,4
+//      13     |   LED
 //
 // This project uses an Arduino UNO microcontroller board, information at:
 // https://www.arduino.cc/en/main/arduinoBoardUno
 //
 // Comments, contributions, suggestions, bug reports, and feature requests
 // are welcome! For source code and bug reports see:
-// http://github.com/[TODO github path to Hacking STEM]
+// https://github.com/microsoft/hackingstem-bbc-ultrasonic-arduino
 //
 // Based on HC-SR04 project by SparkFun available:
 // https://github.com/sparkfun/HC-SR04_UltrasonicSensor
